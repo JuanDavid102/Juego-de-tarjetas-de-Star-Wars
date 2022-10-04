@@ -1,0 +1,32 @@
+
+.title-star-wars {
+    height: 58px;
+    padding: 0px 7px 0px 7px;
+  }
+  
+  .star-wars-button {
+    border: 1px white solid!important;
+    color: white!important;
+    font-family: 'SW4'!important;
+    width: 150px;
+  }
+  
+  .star-wars-button:hover > .arrow {
+    animation-delay: 0.1s;
+    animation-name: example;
+    animation-duration: 0.7s;
+    transition: width 0.5s;
+    width: 15px;
+  }
+  .star-wars-button:hover{
+    width: 170px;
+    transition: width 0.5s;
+  }
+  .arrow{
+    width: 0px;
+  }
+  
+  @keyframes example {
+  0% {width: 0px;}
+  100% {width: 15px;}
+  }

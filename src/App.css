@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'SW1';
+  src: url('Assets/Fonts/starjedi/Starjedi.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW2';
+  src: url('Assets/Fonts/starjedi/Starjhol.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW3';
+  src: url('Assets/Fonts/starjout/Starjout.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW4';
+  src: url('Assets/Fonts/stjedise/STJEDISE.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW5';
+  src: url('Assets/Fonts/stjelogo/Stjldbl1.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW6';
+  src: url('Assets/Fonts/stjelogo/Stjldbl2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SW7';
+  src: url('Assets/Fonts/stjelogo/Strjmono.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.star-wars-font { /* 2, 4 */
+  font-family: 'SW2'!important;
+}
+.title-star-wars {
+  height: 58px;
+  padding: 0px 7px 0px 7px;
+}
+
+.star-wars-button {
+  border: 1px white solid!important;
+  color: white!important;
+  font-family: 'SW4'!important;
+  width: 150px;
+}
+.bg-stars {
+  background-image: url('Assets/Background/stars.jpg');
+}
+
+.star-wars-button:hover > .arrow {
+  animation-delay: 0.1s;
+  animation-name: example;
+  animation-duration: 0.7s;
+  transition: width 0.5s;
+  width: 15px;
+}
+.star-wars-button:hover{
+  width: 170px;
+  transition: width 0.5s;
+}
+.arrow{
+  width: 0px;
+}
+
+@keyframes example {
+0% {width: 0px;}
+100% {width: 15px;}
+}
+
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

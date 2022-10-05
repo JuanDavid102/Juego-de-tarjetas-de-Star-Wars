@@ -1,20 +1,15 @@
 import './Home.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import GameTitle from '../../components/GameTitle/GameTitle';
+import ButtonStartGame from '../../components/ButtonStartGame/ButtonStartGame';
 
 function Home(props) {
-  function irAJuego() {
-    // console.log(props)
-    props.irAJuego();
-  }
 
   return (
     <div id="home">
       <header className="App-header">
-        <h1 className='star-wars-font title-star-wars'>Bienvenido al juego de las tarjetas de Star Wars</h1>
-        <button type="button" className="btn star-wars-font star-wars-button" onClick={irAJuego}>iniciar juego <FontAwesomeIcon icon={faArrowRight} className="arrow" /></button>
-        
+        <GameTitle title="Bienvenido al juego de las tarjetas de Star Wars" />
+        <ButtonStartGame irAJuego={props.irAJuego} />
       </header>
     </div>
   );

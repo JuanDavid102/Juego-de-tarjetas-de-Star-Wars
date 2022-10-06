@@ -44,6 +44,9 @@
 .star-wars-font { /* 2, 4 */
   font-family: 'SW2'!important;
 }
+.star-wars-font-secundary { /* 2, 4 */
+  font-family: 'SW4'!important;
+}
 .bg-stars {
   background-image: url('Assets/Background/stars.jpg');
 }

@@ -41,11 +41,14 @@
   font-style: normal;
 }
 
-.star-wars-font { /* 2, 4 */
+.star-wars-font {
   font-family: 'SW2'!important;
 }
-.star-wars-font-secundary { /* 2, 4 */
+.star-wars-font-secundary {
   font-family: 'SW4'!important;
+}
+.star-wars-font-third {
+  font-family: 'SW3'!important;
 }
 .bg-stars {
   background-image: url('Assets/Background/stars.jpg');
@@ -53,6 +56,7 @@
 
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {

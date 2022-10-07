@@ -73,7 +73,6 @@ function Game() {
     function obtenerTarjetasPersonajes() {
         let contador = 0;
         let tarjetaPersonaje;
-    
         let tarjetasPersonajes = [];
         
         do{
@@ -83,7 +82,13 @@ function Game() {
         }while (4 > tarjetasPersonajes.length);
         return tarjetasPersonajes.map(muestraTarjeta);
     }
-
+    
+    function muestraTarjeta(personaje, indice) {
+        return (
+            <div key={indice} className="col-sm-3 d-flex flex-row justify-content-around"><img onClick={esEleccionCorrecta} className='eleccion' name={personaje.name} src={personaje.img}/></div>
+        );
+    }
+    
     function esEleccionCorrecta(event) {
         let ganador = document.getElementById("ganador");
         if (rondaActual == 10) {
@@ -93,36 +98,51 @@ function Game() {
 
         if(ganador.textContent == event.target.name){
             setPuntuacion(puntuacion + 1)
-            // animacion de acierto
+            muestraMensajeCorrecto()
         }else{
-            // animacion de fallo
+            muestraMensajeFallido()
         }
 
         obtenerPersonajes();
     }
-    
-    function muestraTarjeta(personaje, indice) {
-        return (
-            <div key={indice} className="col-sm-3 d-flex flex-row justify-content-around"><img onClick={esEleccionCorrecta} className='w-75 h-75 eleccion' name={personaje.name} src={personaje.img}/></div>
-        );
+
+    function eliminarPadre(event) {
+        document.getElementById("mensaje").removeChild(event.target.parentNode);
+    }
+
+    function muestraMensajeCorrecto() {
+        document.getElementById("mensaje").innerHTML = '<span class="alert alert-success alert-dismissible fade show"><button type="button" id="cerrar" data-dismiss="alert">&times;</button><strong>¡Correcto!</strong> Has acertado el personaje</span>'
+        document.getElementById("mensaje").querySelector("button#cerrar").onclick = eliminarPadre;
+        console.log(document.getElementById("mensaje").querySelector("button#cerrar"))
+    }
+
+    function muestraMensajeFallido() {
+        document.getElementById("mensaje").innerHTML = '<span class="alert alert-danger alert-dismissible fade show"><button type="button" id="cerrar" data-dismiss="alert">&times;</button><strong>¡Erroneo!</strong> Has fallado el personaje</span>'
+        document.getElementById("mensaje").querySelector("button#cerrar").onclick = eliminarPadre;
+        console.log(document.getElementById("mensaje").querySelector("button#cerrar"))
     }
 
     useEffect(obtenerPersonajes, []);
 
     return (
         <div id="game">
-            <div className='row'>
-                <div className='col-sm-6 ronda bg-info'>
+            <div className='row mb-3'>
+                <div className='col-sm-6 ronda bg-info star-wars-font-third'>
                     Ronda {rondaActual} de 10
                 </div>
-                <div className='col-sm-6 puntuacion bg-primary'>
+                <div className='col-sm-6 puntuacion bg-primary star-wars-font-third'>
                     Puntuacion: {puntuacion} de 10
                 </div>
             </div>
-            <div className='tarjetas row'>
-                {cargado ? obtenerTarjetasPersonajes() : ""}
+            <div id='mensaje'>
+                
             </div>
-            <h1 id='ganador' className='star-wars-font-secundary bg-secondary d-inline px-4 pb-2 rounded'>{personajes[personajeGanador].name}</h1>
+            <div className='tarjetas row mt-5'>
+                {cargado ? obtenerTarjetasPersonajes() : ""} {/* añadir un loading */ }
+            </div>
+            <div className='row justify-content-center mt-5'>
+                <h1 id='ganador' className='col-sm-6 star-wars-font-secundary bg-secondary px-4 pb-2 rounded mt-12'>{personajes[personajeGanador].name}</h1>
+            </div>
             
             {/*  */}
         </div>

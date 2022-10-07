@@ -8,16 +8,16 @@ function App() {
 
   const [localizacion, setLocalizacion] = useLocation();
 
-  function irAJuego() {
-    if (localizacion != "/juego") {
-      setLocalizacion("/juego");
+  function irALocalizacion(localizacion) {
+    if (localizacion != "/" + localizacion) {
+      setLocalizacion("/" + localizacion);
     }
   }
 
   return (
     <div className="App container-fluid bg-stars">
-      <Route path="/"><Home irAJuego={irAJuego} /></Route>
-      <Route path="/juego"><Game></Game></Route>
+      <Route path="/"><Home irALocalizacion={irALocalizacion} /></Route>
+      <Route path="/juego"><Game irALocalizacion={irALocalizacion}></Game></Route>
     </div>
   );
 }

@@ -1,8 +1,8 @@
-.star-wars-button {
+ .star-wars-button {
     border: 1px white solid!important;
     color: white!important;
     font-family: 'SW4'!important;
-    width: 155px;
+    width: 180px!important;
   }
   
   .star-wars-button:hover > .arrow {
@@ -13,7 +13,7 @@
     width: 15px;
   }
   .star-wars-button:hover{
-    width: 170px;
+    width: 200px!important;
     transition: width 0.5s;
   }
   .arrow{

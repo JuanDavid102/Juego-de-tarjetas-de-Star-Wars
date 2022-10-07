@@ -1,7 +1,7 @@
 import './Home.css';
 
 import GameTitle from '../../components/GameTitle/GameTitle';
-import ButtonStartGame from '../../components/ButtonStartGame/ButtonStartGame';
+import Button from '../../components/Button/Button';
 
 function Home(props) {
 
@@ -9,7 +9,7 @@ function Home(props) {
     <div id="home">
       <header className="App-header">
         <GameTitle title="Bienvenido al juego de las tarjetas de Star Wars" />
-        <ButtonStartGame irAJuego={props.irAJuego} />
+        <Button localizacion="juego" buttonText="iniciar juego" irALocalizacion={props.irALocalizacion} />
       </header>
     </div>
   );

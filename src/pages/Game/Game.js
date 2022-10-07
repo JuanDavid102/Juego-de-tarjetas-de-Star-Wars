@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import BoxTitleHeader from '../../components/BoxTitleHeader/BoxTitleHeader';
 import CardListNameWin from '../../components/CardListNameWin/CardListNameWin';
 import EndGame from '../../components/EndGame/EndGame';
+import VisualRoundCounter from '../../components/VisualRoundCounter/VisualRoundCounter';
 // import CardListNameWin from '../../components/CardListNameWin/CardListNameWin';
 
 import './Game.css';
 
 
-function Game() {
+function Game(props) {
     // Entre ronda y ronda poner un tiempo y una pantalla en ¿blanco? indicando puntuación y ronda actual. usar z-index
     const [personajesElegidos, setPersonajesElegidos] = useState([]);
     const [rondaActual, setRondaActual] = useState(1);
@@ -15,6 +16,7 @@ function Game() {
     const [personajeGanador, setPersonajeGanador] = useState([1]);
     const [personajesGanadoresAnteriores, setPersonajesGanadoresAnteriores] = useState([]);
     const [cargado, setCargado] = useState(false);
+    const [respuestas, setRespuestas] = useState([]);
     let personajesGanadoresAnterioresAux = [];
 
     function obtenerPersonajes() {
@@ -63,8 +65,10 @@ function Game() {
 
         if(ganador.textContent == event.target.name){
             setPuntuacion(puntuacion + 1)
+            setRespuestas(respuestas => [...respuestas, true])
             muestraMensajeCorrecto()
         }else{
+            setRespuestas(respuestas => [...respuestas, false])
             muestraMensajeFallido()
         }
 
@@ -92,8 +96,9 @@ function Game() {
                     <BoxTitleHeader rondaActual={rondaActual} puntuacion={puntuacion}></BoxTitleHeader>
                     <div id='mensaje'></div>
                     <CardListNameWin cargado={cargado} esEleccionCorrecta={esEleccionCorrecta} personajesElegidos={personajesElegidos} elegido={personajeGanador}></CardListNameWin> 
+                    <VisualRoundCounter respuestas={respuestas}></VisualRoundCounter>
                 </div> : 
-                <EndGame puntuacion={puntuacion}></EndGame>
+                <EndGame puntuacion={puntuacion} irALocalizacion={props.irALocalizacion}></EndGame>
             }
         </div>
     );

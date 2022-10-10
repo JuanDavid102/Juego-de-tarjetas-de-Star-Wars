@@ -8,7 +8,7 @@ function EndGame(props) {
         <h1 className='star-wars-font-third text-white'>
             Gracias por participar, tu puntuación ha sido de {props.puntuacion} puntos
         </h1>
-        <Button localizacion="" buttonText="volver a inicio" irALocalizacion={props.irALocalizacion} />
+        <Button largoTexto={180} localizacion="" buttonText="volver a inicio" irALocalizacion={props.irALocalizacion} />
     </div>
   );
 }

@@ -2,7 +2,6 @@
     border: 1px white solid!important;
     color: white!important;
     font-family: 'SW4'!important;
-    width: 180px!important;
   }
   
   .star-wars-button:hover > .arrow {
@@ -11,10 +10,6 @@
     animation-duration: 0.7s;
     transition: width 0.5s;
     width: 15px;
-  }
-  .star-wars-button:hover{
-    width: 200px!important;
-    transition: width 0.5s;
   }
   .arrow{
     width: 0px;

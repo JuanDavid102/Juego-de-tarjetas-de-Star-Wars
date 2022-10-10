@@ -9,7 +9,7 @@ function Home(props) {
     <div id="home">
       <header className="App-header">
         <GameTitle title="Bienvenido al juego de las tarjetas de Star Wars" />
-        <Button localizacion="juego" buttonText="iniciar juego" irALocalizacion={props.irALocalizacion} />
+        <Button largoTexto={150} localizacion="juego" buttonText="iniciar juego" irALocalizacion={props.irALocalizacion} />
       </header>
     </div>
   );

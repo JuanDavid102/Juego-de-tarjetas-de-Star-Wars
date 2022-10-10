@@ -73,7 +73,61 @@ function Game(props ) {
         }
 
         obtenerPersonajes();
+        transicion()
     }
+
+    function transicion() {
+        let id = null;
+        let elem = document.createElement("h1");
+        elem.classList.add("intermedio");
+        elem.classList.add("star-wars-font");
+        elem.classList.add("bg-stars");
+        let textNode = document.createTextNode("De ronda " + rondaActual + " a " + (rondaActual + 1));
+        elem.appendChild(textNode);elem.appendChild(textNode);
+        console.log(elem.style)
+        document.getElementsByClassName("inGame")[0].appendChild(elem);
+        let pos = 10;
+        let contador = 0;
+        clearInterval(id);
+        id = setInterval(crearPanel, 1);
+        function crearPanel() {
+            if (pos == 25) {
+                clearInterval(id);
+                contador = pos;
+                id = setInterval(ponerTextoEnPanel, 3000);
+                elem.style.color = "white";
+            } else {
+                pos++; 
+                elem.style.width = pos*4 + "%"; 
+                elem.style.height = pos*4 + "%";
+                elem.style.opacity = pos/14;
+            }
+        }
+
+        function ponerTextoEnPanel() {
+            clearInterval(id);
+            id = setInterval(reducirPanel, 1);
+        }
+        
+        function reducirPanel(){
+            if (contador == 0) {
+                clearInterval(id);
+                id = setInterval(eliminarPanel, 3000);
+                elem.style.color = "white";
+            } else {
+                contador--; 
+                elem.style.width = contador*4 + "%"; 
+                elem.style.height = contador*4 + "%";
+                elem.style.opacity = contador/14;
+            }
+        }
+
+        function eliminarPanel(){
+            clearInterval(id);
+            document.getElementsByClassName("inGame")[0].removeChild(elem);
+        }
+        
+      }
 
     function eliminarPadre(event) {
         document.getElementById("mensaje").removeChild(event.target.parentNode);

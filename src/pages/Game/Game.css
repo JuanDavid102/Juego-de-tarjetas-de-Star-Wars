@@ -19,3 +19,18 @@ button#cerrar{
     background-color:transparent;
     border:0;
 }
+
+.intermedio{
+    min-width: 10%;
+    min-height: 10%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    color: black;
+    z-index:3;
+}

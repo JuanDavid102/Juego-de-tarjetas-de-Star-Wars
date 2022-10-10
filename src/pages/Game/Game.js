@@ -8,7 +8,7 @@ import VisualRoundCounter from '../../components/VisualRoundCounter/VisualRoundC
 import './Game.css';
 
 
-function Game(props) {
+function Game(props ) {
     // Entre ronda y ronda poner un tiempo y una pantalla en ¿blanco? indicando puntuación y ronda actual. usar z-index
     const [personajesElegidos, setPersonajesElegidos] = useState([]);
     const [rondaActual, setRondaActual] = useState(1);
